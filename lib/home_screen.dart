@@ -18,12 +18,14 @@ class _home_screenState extends State<home_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Water Tracker'),
+        title: const Text('Water Tracker',style: TextStyle(fontSize: 26,fontWeight: FontWeight.bold,color: Colors.white),),
         centerTitle: true,
+        backgroundColor: Colors.blue,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+
           waterheader(),
           Expanded(
               child: viewList()),
@@ -47,9 +49,10 @@ class _home_screenState extends State<home_screen> {
   ListTile _waterTrackListTile(int index) {
     WaterTrack waterTrack = waterTrackList[index];
     return ListTile(
-                  title: Text('${waterTrack.dateTime.hour} : ${waterTrack.dateTime.minute}'),
-                  subtitle: Text('${waterTrack.dateTime.day}-${waterTrack.dateTime.month}-${waterTrack.dateTime.year}'),
-                  leading: CircleAvatar(child: Text('${waterTrack.noOfGlass}')),
+      iconColor: Colors.red,
+                  title: Text('${waterTrack.dateTime.hour}:${waterTrack.dateTime.minute}',style: TextStyle(fontWeight: FontWeight.bold),),
+                  subtitle: Text('${waterTrack.dateTime.day}-${waterTrack.dateTime.month}-${waterTrack.dateTime.year}',),
+                  leading: CircleAvatar(backgroundColor: Colors.blueAccent, child: Text('${waterTrack.noOfGlass}',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),)),
                   trailing: IconButton(
                       onPressed: ()=>_deteleSingleBar(index),
                       icon: const Icon(Icons.delete_forever_outlined)),
@@ -59,6 +62,7 @@ class _home_screenState extends State<home_screen> {
   Widget waterheader() {
     return Column(
           children: [
+
             Text(
               totalGlass().toString(),
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

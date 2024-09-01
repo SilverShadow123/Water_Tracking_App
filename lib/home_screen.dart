@@ -117,6 +117,12 @@ class _home_screenState extends State<home_screen> {
     });
     
   }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _input_glass_num.dispose();
+    super.dispose();
+  }
 }
 
 
